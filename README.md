@@ -1,6 +1,6 @@
 # eSEM
-Tool to calculate enzyme activity
+## Tool to calculate enzyme activity
 
 
-Get the released version from github: 
-remotes::install_github("Wanglab-UTHSC/eSEM")
+Get the released version from GitHub: 
+`remotes::install_github("Wanglab-UTHSC/eSEM")`
