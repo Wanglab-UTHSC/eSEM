@@ -8,6 +8,7 @@ eSEM(
   input = NULL,
   datatype = NULL,
   organism = NULL,
+  enzyme.organism = NULL,
   cor.off = 0.95,
   kmo.off = 0,
   enzyList = NULL,
@@ -24,6 +25,8 @@ eSEM(
 \item{datatype}{Factor. Data type: ubiquitination or phosphoralation or acetylation; ("ubi", "psp", "ace")}
 
 \item{organism}{Vector. Substrate species; (“human”, “mouse”, “rat”)}
+
+\item{enzyme.organism}{Vector. Enzyme species; (“human”, “mouse”, “rat”)}
 
 \item{cor.off}{Numeric. Set up correlation cutoff value 0-1 to remove high collinear variables. Default is 0.95.}
 
@@ -63,6 +66,7 @@ result <- eSEM(input = input_psp_example,
                organism = "mouse",
                input.log2.norm = TRUE,
                whole.log2.trans = TRUE,
+               motif = motif_example,
                whole.proteome = wholeProteome_example)
 
 

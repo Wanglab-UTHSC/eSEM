@@ -4,10 +4,12 @@
 \alias{pspMotifAdjacency}
 \title{pspMotifAdjacency}
 \usage{
-pspMotifAdjacency(sp, motif.ref)
+pspMotifAdjacency(sp, ep, motif.ref)
 }
 \arguments{
-\item{sp}{Species; ("mouse", "rat", "human").}
+\item{sp}{Substrate species; ("mouse", "rat", "human").}
+
+\item{ep}{Enzyme species; ("mouse", "rat", "human").}
 
 \item{motif.ref}{Added enzyme-subatrate relationships from motif discovery. Same as KSEM -motif parameter.}
 }

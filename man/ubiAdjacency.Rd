@@ -7,7 +7,7 @@
 ubiAdjacency(sp)
 }
 \arguments{
-\item{sp}{species; ("mouse", "rat", "human").}
+\item{sp}{Substrate species; ("mouse", "rat", "human").}
 }
 \description{
 This script is used to build ligase-substrate adjacency matrix with only PSP database.

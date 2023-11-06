@@ -4,10 +4,12 @@
 \alias{getFa}
 \title{Build MEME input}
 \usage{
-getFa(ks = NULL, filePath)
+getFa(ss = NULL, es = NULL, filePath)
 }
 \arguments{
-\item{ks}{Vector; Kinase species; ("mouse", "rat", "human")}
+\item{ss}{Vector; Substrate species; ("mouse", "rat", "human")}
+
+\item{es}{Vector; Kinase species; ("mouse", "rat", "human")}
 
 \item{filePath}{The path is used to save .fa files. Recommend to create a new folder to save all .fa.files.}
 }
@@ -15,7 +17,7 @@ getFa(ks = NULL, filePath)
 script to extract MEME input .fa file
 }
 \examples{
-getFa(ks = "human", filePath = getwd())
+getFa(ss = "human", es = c("human", "mouse", "rat"), filePath = getwd())
 
 
 

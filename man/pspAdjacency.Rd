@@ -4,10 +4,12 @@
 \alias{pspAdjacency}
 \title{pspAdjacency}
 \usage{
-pspAdjacency(sp)
+pspAdjacency(sp, ep)
 }
 \arguments{
-\item{sp}{species; ("mouse", "rat", "human").}
+\item{sp}{Substrate species; ("mouse", "rat", "human").}
+
+\item{ep}{Enzyme species; ("mouse", "rat", "human").}
 }
 \description{
 This script is used to build kinase-substrate adjacency matrix with only PSP database.
