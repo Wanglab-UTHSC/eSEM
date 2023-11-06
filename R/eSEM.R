@@ -7,6 +7,7 @@
 #' @param datatype Factor. Data type: ubiquitination or phosphoralation or acetylation; ("ubi", "psp", "ace")
 #' @param input Dataframe. Your quantitative ubiquiti-proteomics, phospho-proteomic and acetyl-proteomics data.
 #' @param organism Vector. Substrate species; (“human”, “mouse”, “rat”)
+#' @param enzyme.organism Vector. Enzyme species; (“human”, “mouse”, “rat”)
 #' @param cor.off Numeric. Set up correlation cutoff value 0-1 to remove high collinear variables. Default is 0.95.
 #' @param kmo.off Numeric. Set up KMO cutoff value 0-1. Default is 0.
 #' @param enzyList Vector. Program only calculate the enzyme in the enzyList. Default is to output ALL enzyme activities and affinities.
@@ -39,6 +40,7 @@
 #'                organism = "mouse",
 #'                input.log2.norm = TRUE,
 #'                whole.log2.trans = TRUE,
+#'                motif = motif_example,
 #'                whole.proteome = wholeProteome_example)
 #'
 #'
@@ -57,6 +59,7 @@ eSEM = function(
                 input = NULL,
                 datatype = NULL,
                 organism = NULL,
+                enzyme.organism = NULL,
                 cor.off = 0.95,
                 kmo.off = 0,
                 enzyList = NULL,
@@ -97,10 +100,19 @@ eSEM = function(
     message("Start running...")
   }
 
+  # Check enzyme organism
+  if (is.null(enzyme.organism)){
+    enzyme.organism <- organism
+  }else if(datatype == "ace" & !is.null(enzyme.organism)){
+    stop("Sorry but currently enzyme organism can only be customerised for phosphorlation data! \n Please change correct your datatype or enzyme organism")
+  }else if(datatype == "ubi" & !is.null(enzyme.organism)){
+    stop("Sorry but currently enzyme organism can only be customerised for phosphorlation data! \n Please change correct your datatype or enzyme organism")
+  }
 
-  # enzyme species info
+
+  # enzyme organism info
   message("\n", "Enzyme organism: ")
-  message(cat(organism))
+  message(cat(enzyme.organism))
 
   # enzyme list
   if (is.null(enzyList)) {
@@ -140,7 +152,7 @@ eSEM = function(
     if (is.null(motif)) {
       message("\n", "Running without motif added!")
       if (datatype == "psp"){
-        adj_matrix <- pspAdjacency(sp = organism)
+        adj_matrix <- pspAdjacency(sp = organism, ep = enzyme.organism)
 
       }else if(datatype == "ubi"){
         adj_matrix <- ubiAdjacency(sp = organism)
@@ -151,7 +163,7 @@ eSEM = function(
 
     }else{
       message("\n", "Running with motif added!")
-      adj_matrix <- pspMotifAdjacency(sp = organism, motif.ref = motif)
+      adj_matrix <- pspMotifAdjacency(sp = organism, ep = enzyme.organism, motif.ref = motif)
     }
     message("\n", "Adjacency matrix completes!")
     # check and get kinase.list

@@ -9,9 +9,9 @@
 
 
 motifEx <- function(mastFile,
-                    savePath=getwd()){
+                    savePath = getwd()){
   mastFile_fix <- str_split_fixed(mastFile$V1, "_MASTout.", 2) %>% data.frame()
-  colnames(mastFile_fix) <- c("GENE", "sites")
+  colnames(mastFile_fix) <- c("GENE", "psite")
 
   file_path <- file.path(savePath, "motif_input.csv")
 
@@ -20,7 +20,5 @@ motifEx <- function(mastFile,
 }
 
 
-# mastFile <- read.table("C:\\Project_Dehui_2022\\KSEM\\02_KSEM_code\\KSEM_v2\\KSEM\\data_raw\\extract_result.txt")
-# motif_example <- motifEx(mastFile = mastFile, savePath = ".\\data_raw")
 
 

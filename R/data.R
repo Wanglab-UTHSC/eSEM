@@ -75,7 +75,7 @@ motifExample_data <- function() {
 }
 
 
-# psp <- read.csv("/Volumes/LaCie/Project_Dehui_2022/KSEM/02_KSEM_code/eSEM_v1/eSEM/data/PhosphositePlus.csv", fileEncoding = "UTF-8-BOM")
+# psp <- read.csv("/Volumes/LaCie/Project_Dehui_2022/KSEM/02_KSEM_code/eSEM_v2/eSEM/data/PhosphositePlus.csv", fileEncoding = "UTF-8-BOM")
 # save_path <- file.path(".", "data", "PhosphositePlus.RData")
 # Save the object using the file path
 # save(psp, file = save_path)
@@ -131,6 +131,7 @@ motifExample_data <- function() {
 
 # mastFile <- read.table("C:\\Project_Dehui_2022\\KSEM\\02_KSEM_code\\KSEM_v2\\KSEM\\data_raw\\extract_result.txt")
 # motif_example <- read.csv("/Volumes/LaCie/Project_Dehui_2022/KSEM/08_paper/Hong/motif_input_15.csv")
+# colnames(motif_example) <- c("GENE", "psite")
 # save(motif_example, file = "./data/motif_example.RData")
 
 

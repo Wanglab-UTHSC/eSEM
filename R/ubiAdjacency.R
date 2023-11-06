@@ -3,7 +3,7 @@
 #' @import dplyr
 #' @import tidyr
 #' @description  This script is used to build ligase-substrate adjacency matrix with only PSP database.
-#' @param sp species; ("mouse", "rat", "human").
+#' @param sp Substrate species; ("mouse", "rat", "human").
 
 
 #'

@@ -3,24 +3,31 @@
 #' @import dplyr
 #' @import tidyr
 #' @description  This script is used to build kinase-substrate adjacency matrix with only PSP database.
-#' @param sp species; ("mouse", "rat", "human").
+#' @param sp Substrate species; ("mouse", "rat", "human").
+#' @param ep Enzyme species; ("mouse", "rat", "human").
 
 
 #'
 
-pspAdjacency <- function(sp){
+pspAdjacency <- function(sp, ep){
   psp <- psp_data()
   psp_rel <- psp
   rm(psp)
   # Select PSP matrix
-  psp_set <- psp_rel[which(psp_rel$organism %in% sp), ]
+  # Select PSP matrix
+  if(is.null(ep)){
+    ep <- sp
+  }
+
+  psp_set <- psp_rel[which(psp_rel$KIN_ORGANISM %in% ep & psp_rel$SUB_ORGANISM %in% sp), ]
+
   # Build psite name and replace "-" with "."
   psp_set$psite <- paste(psp_set$SUB_ACC_ID, "_", psp_set$SUB_MOD_RSD, sep = "")
   psp_set$psite <- as.matrix(gsub("-",".",as.matrix(psp_set$psite)))
   # Change all kinase names into toupper
   psp_set$GENE <- toupper(psp_set$GENE)
   # Duplicate and Add value=1
-  psp_set <- psp_set[, c(1,18)]
+  psp_set <- psp_set[, c(1,17)]
   psp_set <- psp_set[!duplicated(psp_set), ]
   psp_set$value <- 1
   rel_adj_matrix <- psp_set %>%
