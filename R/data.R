@@ -159,6 +159,7 @@ motifExample_data <- function() {
 # input_ubi_example_T <- input_ubi_example_T[, 1:15]
 # colnames(input_ubi_example_T)[5:15] <- sapply(strsplit(colnames(input_ubi_example_T)[5:15], "_"), function(x) paste(x[-1], collapse = "_"))
 # colnames(input_ubi_example_T)[5:15] <- sapply(strsplit(colnames(input_ubi_example_T)[5:15], "\\."), function(x) x[1])
+# colnames(input_ubi_example_T)[14:15] <- c("Recovery1_Btz", "Recovery2_Btz")
 # save(input_ubi_example_T, file = "./data/input_ubi_example_T.RData")
 # write.csv(input_ubi_example_T, file = "/Volumes/LaCie/Project_Dehui_2022/KSEM/02_KSEM_code/eSEM_v3/eSEM/data/input_ubi_example_T.csv", row.names = F)
 
