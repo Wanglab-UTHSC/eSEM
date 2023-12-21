@@ -105,6 +105,7 @@ motifExample_data <- function() {
 
 
 # input_ubi_example <- read.csv("/Volumes/LaCie/Project_Dehui_2022/KSEM/02_KSEM_code/eSEM_v1/eSEM/data/input_ubi_example.csv")
+# input_ubi_example <- input_ubi_example[, 1:15]
 # save_path <- file.path(".", "data", "input_ubi_example.RData")
 # save(input_ubi_example, file = save_path)
 
@@ -155,6 +156,9 @@ motifExample_data <- function() {
 # ubiDBf <- subset(ubiDB, Gene.Symbol..E3. %in% c("PRPF19", "CCNF", "PPARG", "FBXO32", "CBLC",
 #                                                 "AMFR", "GAN", "RLIM", "BIRC2", "MARCHF5"))
 # input_ubi_example_T <-subset(input_ubi_example, Substrate_ACC %in% ubiDBf$SwissProt.AC..Substrate.)
+# input_ubi_example_T <- input_ubi_example_T[, 1:15]
+# colnames(input_ubi_example_T)[5:15] <- sapply(strsplit(colnames(input_ubi_example_T)[5:15], "_"), function(x) paste(x[-1], collapse = "_"))
+# colnames(input_ubi_example_T)[5:15] <- sapply(strsplit(colnames(input_ubi_example_T)[5:15], "\\."), function(x) x[1])
 # save(input_ubi_example_T, file = "./data/input_ubi_example_T.RData")
 # write.csv(input_ubi_example_T, file = "/Volumes/LaCie/Project_Dehui_2022/KSEM/02_KSEM_code/eSEM_v3/eSEM/data/input_ubi_example_T.csv", row.names = F)
 
